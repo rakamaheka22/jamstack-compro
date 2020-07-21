@@ -1,0 +1,44 @@
+query getCommentbyArticle($id: ID) {
+  comments(where: { article: {id: $id} }) {
+    id
+    name
+    message
+    article {
+      id
+    }
+  }
+}
+
+mutation setComment($name: String, $message: String, $article: ID) {
+  createComment(input: {
+    data: {
+      name: $name,
+      message: $message,
+      article: $article,
+    }
+  }) {
+    comment {
+      id
+      name
+      message
+      article {
+        id
+      	title
+      }
+    }
+  }
+}
+
+mutation deleteComment($id: ID!) {
+  deleteComment(input: {
+    where: {
+      id: $id,
+    }
+  }) {
+    comment {
+      id
+      name
+      message
+    }
+  }
+}
