@@ -87,5 +87,5 @@ export default {
   */
   build: {
   },
-  buildDir: 'dist',
+  // buildDir: 'dist',
 }
