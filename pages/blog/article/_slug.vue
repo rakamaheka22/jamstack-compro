@@ -6,7 +6,7 @@
           <div class="px-4 py-4">
             <h1 class="text-2xl font-medium">{{ article.title }}</h1>
             <span class="text-sm">Author : {{ article.author }} - Date : {{ article.date }}</span>
-            <img class="w-full h-64 object-cover mt-4" :src="`http://localhost:1337${article.image.url}`" :alt="article.title">
+            <img class="w-full h-64 object-cover mt-4" :src="`https://jamstack-api.herokuapp.com${article.image.url}`" :alt="article.title">
             <div class="mt-4 whitespace-pre-line" markdown="1">
               {{ article.content }}
             </div>
@@ -28,7 +28,7 @@
             </div>
           </div>
         </div>
-        <div v-if="article.is_release" class="rounded overflow-hidden shadow-lg bg-white my-4 px-4 py-4">
+        <div v-if="article.is_release && article.comments.length > 0" class="rounded overflow-hidden shadow-lg bg-white my-4 px-4 py-4">
           <ul>
             <li v-for="item in article.comments" :key="item.id">
               <div class="flex mb-4 justify-between">

@@ -68,7 +68,7 @@ export default {
     // },
     clientConfigs: {
       default: {
-        httpEndpoint: 'http://localhost:1337/graphql',
+        httpEndpoint: 'https://jamstack-api.herokuapp.com/graphql',
       },
     }
   },
