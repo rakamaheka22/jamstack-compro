@@ -8,13 +8,14 @@
     "start": "nuxt start",
     "export": "nuxt export",
     "serve": "nuxt serve",
-    "generate": "nuxt build && nuxt export"
+    "generate": "nuxt build && nuxt export",
+    "static": "nuxt generate"
   },
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.1-rc.1",
     "@nuxtjs/axios": "^5.11.0",
     "graphql-tag": "^2.10.4",
-    "nuxt": "^2.13.0"
+    "nuxt": "^2.14.0"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^2.0.0",
