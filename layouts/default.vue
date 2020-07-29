@@ -2,7 +2,6 @@
   <div class="bg-gray-200 h-full">
     <nav class="w-full flex items-center justify-between flex-wrap bg-gray-800 p-6">
       <div class="flex items-center flex-shrink-0 text-white mr-6">
-        <Logo />
         <nuxt-link to="/">
           <span class="font-semibold text-xl tracking-tight ml-3">Compro</span>
         </nuxt-link>

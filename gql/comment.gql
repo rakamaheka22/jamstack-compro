@@ -19,12 +19,6 @@ mutation setComment($name: String, $message: String, $article: ID) {
   }) {
     comment {
       id
-      name
-      message
-      article {
-        id
-      	title
-      }
     }
   }
 }
@@ -37,8 +31,6 @@ mutation deleteComment($id: ID!) {
   }) {
     comment {
       id
-      name
-      message
     }
   }
 }

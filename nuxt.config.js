@@ -61,11 +61,6 @@ export default {
     'nuxt-purgecss',
   ],
   apollo: {
-    // defaultOptions: {
-    //   $query: {
-    //     fetchPolicy: 'network-only',
-    //   },
-    // },
     clientConfigs: {
       default: {
         httpEndpoint: 'https://jamstack-api.herokuapp.com/graphql',

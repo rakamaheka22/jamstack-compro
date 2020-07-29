@@ -29,3 +29,26 @@ query getArticle($id: ID!) {
     }
   }
 }
+
+mutation createArticle(
+  $title: String,
+  $date: DateTime,
+	$author: String,
+	$is_release: Boolean,
+	$content: String,
+	$image: ID) {
+  createArticle(input: {
+    data: {
+      title: $title,
+      date: $date,
+      author: $author,
+      is_release: $is_release,
+      content: $content,
+      image: $image
+    }
+  }) {
+    article {
+      id
+    }
+  }
+}

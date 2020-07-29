@@ -16,13 +16,27 @@
         <div class="rounded overflow-hidden shadow-lg bg-white my-4 px-4 py-4">
           <div class="md:flex md:items-center">
             <div class="md:w-2/6 mr-4">
-              <input v-model="name" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-teal-500" id="inline-full-name" type="text" placeholder="Masukkan Nama">
+              <input
+                v-model="name"
+                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-teal-500"
+                type="text"
+                placeholder="Masukkan Nama"
+              >
             </div>
             <div class="md:w-3/6">
-              <input v-model="message" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-teal-500" id="inline-full-name" type="text" placeholder="Masukkan Komentar">
+              <input
+                v-model="message"
+                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-teal-500"
+                type="text"
+                placeholder="Masukkan Komentar"
+              >
             </div>
             <div class="md:w-1/6">
-              <button class="shadow bg-teal-500 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded ml-4" type="button" @click="saveComment">
+              <button
+                class="shadow bg-teal-500 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded ml-4"
+                type="button"
+                @click="saveComment"
+              >
                 Post
               </button>
             </div>
@@ -54,13 +68,9 @@
 <script>
 import { getArticle } from '@/gql/article.gql';
 import { setComment, deleteComment } from '@/gql/comment.gql';
-import Logo from "~/components/Logo.vue";
 
 export default {
   name: 'Blog',
-  components: {
-    Logo
-  },
   async asyncData({ app, params }) {
     let article = null;
     const client = await app.apolloProvider.defaultClient;
@@ -91,7 +101,8 @@ export default {
     async loadData() {
       const res = await this.$apollo.query({
         query: getArticle,
-        variables: { id: this.idParams }
+        variables: { id: this.idParams },
+        fetchPolicy: 'network-only',
       });
       this.article = await res.data?.article;
     },
@@ -104,12 +115,11 @@ export default {
           message: this.message,
           article: this.idParams,
         },
-        // refetchQueries: [
-        //   {
-        //     query: getArticle,
-        //     variables: { id: this.idParams }
-        //   }
-        // ]
+        // update: (store, { data: { createComment } }) => {
+        //   const data = store.readQuery({ query: getArticle, variables: { id: this.idParams } });
+        //   const updateData = data.article.comments.push(createComment);
+        //   store.writeQuery({ query: getArticle, data: updateData });
+        // },
       });
       this.loadData();
       this.name = '';
@@ -121,6 +131,12 @@ export default {
         variables: {
           id,
         },
+        // update: (store, { data: { deleteComment } }) => {
+        //   const data = store.readQuery({ query: getArticle, variables: { id: this.idParams } });
+        //   const filterData = data.article.comments.filter(el => el.id !== id);
+        //   data.article.comments = filterData;
+        //   store.writeQuery({ query: getArticle, data });
+        // },
       });
       this.loadData();
     },
