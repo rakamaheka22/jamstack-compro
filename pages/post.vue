@@ -68,7 +68,7 @@
           <button
             :disabled="article.title && article.author && article.content ? false : true"
             type="button"
-            class="btn-publish"
+            class="bg-teal-500 text-white font-bold py-2 px-4 rounded shadow hover:bg-teal-400 focus:shadow-outline focus:outline-none"
             @click="submitArticle"
           >
             Publish Article
@@ -117,23 +117,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.btn-publish {
-  @apply bg-teal-500;
-  @apply text-white font-bold py-2 px-4 rounded shadow;
-}
-
-.btn-publish:hover {
-  @apply bg-teal-400;
-}
-
-.btn-publish:focus {
-  @apply shadow-outline outline-none;
-}
-
-.btn-publish:disabled,
-.btn-publish:[disabled] {
-  @apply opacity-50 cursor-not-allowed;
-}
-</style>

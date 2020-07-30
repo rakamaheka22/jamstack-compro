@@ -1,3 +1,4 @@
+const path = require('path');
 
 export default {
   /*
@@ -81,6 +82,14 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    extractCSS: true,
+    postcss: {
+      plugins: {
+        'postcss-import': {},
+        tailwindcss: path.resolve(__dirname, './tailwind.config.js'),
+        'postcss-nested': {},
+      },
+    },
   },
   // buildDir: 'dist',
 }
