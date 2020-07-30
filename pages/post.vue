@@ -118,7 +118,7 @@ export default {
 }
 </script>
 
-<style type="text/postcss">
+<style>
 .btn-publish {
   @apply bg-teal-500;
   @apply text-white font-bold py-2 px-4 rounded shadow;
