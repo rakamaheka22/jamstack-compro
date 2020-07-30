@@ -2,7 +2,7 @@
   <div class="bg-gray-200 h-full">
     <nav class="w-full flex items-center justify-between flex-wrap bg-gray-800 p-6">
       <div class="flex items-center flex-shrink-0 text-white mr-6">
-        <nuxt-link to="/">
+        <nuxt-link to="/" class="no-underline text-white">
           <span class="font-semibold text-xl tracking-tight ml-3">Compro</span>
         </nuxt-link>
       </div>
@@ -13,10 +13,10 @@
       </div>
       <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="text-sm lg:flex-grow">
-          <nuxt-link to="/about" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+          <nuxt-link to="/about" class="no-underline block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
             About
           </nuxt-link>
-          <nuxt-link to="/blog" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+          <nuxt-link to="/blog" class="no-underline block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
             Blog
           </nuxt-link>
         </div>
